@@ -1,0 +1,31 @@
+{
+    "name": "elfsundae/intervention-image",
+    "type": "library",
+    "description": "Intervention Image Helper",
+    "keywords": ["intervention", "image", "helper"],
+    "homepage": "https://github.com/ElfSundae/intervention-image",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Elf Sundae",
+            "email": "elf.sundae@gmail.com",
+            "homepage": "https://0x123.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "intervention/image": "~2.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "~5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "ElfSundae\\InterventionImage\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
