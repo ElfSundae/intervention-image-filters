@@ -4,7 +4,7 @@ namespace ElfSundae\InterventionImage\Filters;
 
 use Intervention\Image\Image;
 
-class Resize extends Filter
+class Resize extends AbstractFilter
 {
     /**
      * The new width of the image.

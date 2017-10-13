@@ -5,7 +5,7 @@ namespace ElfSundae\InterventionImage\Filters;
 use Exception;
 use Intervention\Image\Filters\FilterInterface;
 
-abstract class Filter implements FilterInterface
+abstract class AbstractFilter implements FilterInterface
 {
     /**
      * Handle dynamic method calls to set properties.

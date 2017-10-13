@@ -4,7 +4,7 @@ namespace ElfSundae\InterventionImage\Filters;
 
 use Intervention\Image\Image;
 
-class Fit extends Filter
+class Fit extends AbstractFilter
 {
     /**
      * The width the image will be resized to after cropping out
