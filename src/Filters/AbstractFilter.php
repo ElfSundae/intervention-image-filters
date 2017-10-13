@@ -10,16 +10,16 @@ abstract class AbstractFilter implements FilterInterface
     /**
      * Handle dynamic method calls to set properties.
      *
-     * @param  string  $method
+     * @param  string  $name
      * @param  array  $parameters
      * @return $this
      *
      * @throws \Exception
      */
-    public function __call($method, $parameters)
+    public function __call($name, $parameters)
     {
-        if (property_exists($this, $method) && ! empty($parameters)) {
-            $this->{$method} = $parameters[0];
+        if ($parameters && property_exists($this, $name)) {
+            $this->$name = reset($parameters);
 
             return $this;
         }
