@@ -1,6 +1,6 @@
 <?php
 
-namespace ElfSundae\InterventionImage\Filters;
+namespace ElfSundae\Image\Filters;
 
 use Intervention\Image\Image;
 
