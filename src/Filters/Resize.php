@@ -35,6 +35,20 @@ class Resize extends AbstractFilter
     protected $upsize = true;
 
     /**
+     * Creates new instance of Resize filter.
+     *
+     * @param  int  $width
+     * @param  int  $height
+     * @param  bool  $aspectRatio
+     */
+    public function __construct($width, $height, $aspectRatio = true)
+    {
+        $this->width = $width;
+        $this->height = $height;
+        $this->aspectRatio = $aspectRatio;
+    }
+
+    /**
      * Applies filter to the given image.
      *
      * @param  \Intervention\Image\Image  $image

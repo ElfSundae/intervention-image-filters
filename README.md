@@ -13,12 +13,21 @@ $ composer require elfsundae/intervention-image-filters
 ## Usage
 
 ```php
-use Image;
+use Intervention\Image\ImageManager as Image;
+// use Intervention\Image\Facades\Image; // For Laravel
+use ElfSundae\Image\Filters\Fit;
 use ElfSundae\Image\Filters\Resize;
 
 $image = Image::make($file)
-    ->filter((new Resize)->width(860))
+    ->filter(new Resize(300, 400))
     ->save($path);
+
+$image->filter(new Fit(320));
+$image->filter(new Fit(320, 400, 'top-left'));
+$image->filter(new Fit(320)->upsize(false));
+
+$image->filter(new Resize(300, 600, $aspectRatio = false));
+$image->filter(new Resize(300, 600)->aspectRatio(false)->upsize(false));
 ```
 
 ## License

@@ -26,7 +26,7 @@ class Fit extends AbstractFilter
     /**
      * The position where cutout will be positioned.
      *
-     * @see http://image.intervention.io/api/fit
+     * @see https://image.intervention.io/v2/api/fit
      *
      * @var string
      */
@@ -38,6 +38,20 @@ class Fit extends AbstractFilter
      * @var bool
      */
     protected $upsize = true;
+
+    /**
+     * Creates new instance of Fit filter.
+     *
+     * @param  int  $width
+     * @param  int|null  $height
+     * @param  string  $position
+     */
+    public function __construct($width, $height = null, $position = 'center')
+    {
+        $this->width = $width;
+        $this->height = $height;
+        $this->position = $position;
+    }
 
     /**
      * Applies filter to the given image.
