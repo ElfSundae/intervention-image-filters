@@ -4,6 +4,7 @@ namespace ElfSundae\Image\Filters;
 
 use Exception;
 use Intervention\Image\Filters\FilterInterface;
+use InvalidArgumentException;
 
 abstract class AbstractFilter implements FilterInterface
 {
@@ -15,15 +16,19 @@ abstract class AbstractFilter implements FilterInterface
      * @return $this
      *
      * @throws \Exception
+     * @throws \InvalidArgumentException
      */
     public function __call($name, $parameters)
     {
-        if ($parameters && property_exists($this, $name)) {
-            $this->$name = reset($parameters);
-
-            return $this;
+        if (! property_exists($this, $name)) {
+            throw new Exception('Call to undefined method '.get_class($this)."::{$name}()");
+        }
+        if (! $parameters) {
+            throw new InvalidArgumentException(get_class($this)."::{$name}() expects 1 argument, 0 given");
         }
 
-        throw new Exception('Call to undefined method '.get_class($this)."::{$method}()");
+        $this->$name = reset($parameters);
+
+        return $this;
     }
 }
