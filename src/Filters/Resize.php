@@ -4,31 +4,39 @@ namespace ElfSundae\Image\Filters;
 
 use Intervention\Image\Image;
 
+/**
+ * @method $this width(int|null $width)
+ * @method $this height(int|null $height)
+ * @method $this aspectRatio(bool $aspectRatio)
+ * @method $this upsize(bool $upsize)
+ *
+ * @see https://image.intervention.io/v2/api/resize
+ */
 class Resize extends AbstractFilter
 {
     /**
      * The new width of the image.
      *
-     * @var int
+     * @var int|null
      */
     protected $width;
 
     /**
      * The new height of the image.
      *
-     * @var int
+     * @var int|null
      */
     protected $height;
 
     /**
-     * Determines whether constrainting the current aspect-ratio of the image.
+     * Indicates whether constrainting the current aspect-ratio of the image.
      *
      * @var bool
      */
     protected $aspectRatio = true;
 
     /**
-     * Determines whether keeping the image from being upsized.
+     * Indicates whether keeping the image from being upsized.
      *
      * @var bool
      */
@@ -37,8 +45,8 @@ class Resize extends AbstractFilter
     /**
      * Creates new instance of Resize filter.
      *
-     * @param  int  $width
-     * @param  int  $height
+     * @param  int|null  $width
+     * @param  int|null  $height
      * @param  bool  $aspectRatio
      */
     public function __construct($width, $height, $aspectRatio = true)

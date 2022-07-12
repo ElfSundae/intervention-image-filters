@@ -4,6 +4,14 @@ namespace ElfSundae\Image\Filters;
 
 use Intervention\Image\Image;
 
+/**
+ * @method $this width(int $width)
+ * @method $this height(int|null $height)
+ * @method $this position(string $position)
+ * @method $this upsize(bool $upsize)
+ *
+ * @see https://image.intervention.io/v2/api/fit
+ */
 class Fit extends AbstractFilter
 {
     /**
@@ -24,16 +32,19 @@ class Fit extends AbstractFilter
     protected $height;
 
     /**
-     * The position where cutout will be positioned.
+     * The position where cutout will be positioned. By default the best
+     * fitting aspect ration is centered.
      *
-     * @see https://image.intervention.io/v2/api/fit
+     * The possible values are:
+     * top-left, top, top-right, left, center (default),
+     * right, bottom-left, bottom, bottom-right
      *
      * @var string
      */
     protected $position = 'center';
 
     /**
-     * Determines whether keeping the image from being upsized.
+     * Indicates whether keeping the image from being upsized.
      *
      * @var bool
      */
